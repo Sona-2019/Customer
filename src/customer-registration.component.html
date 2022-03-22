@@ -1,0 +1,117 @@
+
+<div class="container main">
+<div class="row">
+  <div class="col-6"id="second">
+    <div class="row logo">
+      
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjI1_TL3WjwGc-z718Mvb33Durx_bV1OmwcA&usqp=CAU"/>
+  </div>
+  <div class="row customer"></div>
+  <div class="row contact"><p><em>Contact us:http://www.silverwarepos.com</em></p></div>
+  
+</div>
+  <div class="col-6"id="third">
+    
+    <h5 style="margin-left:31%">Customer Details</h5>
+<form [formGroup]="customerForm"  class="row g-3">
+
+  <div class="form-group col-md-6">
+    <input type="text" class="form-control" formControlName="firstName"placeholder="Firstname"onkeypress="return event.charCode != 32" />
+    <div *ngIf="form['firstName'].touched && form['firstName'].invalid" class="text-danger">
+      <div *ngIf="form['firstName'].errors?.['required']">Name is required.</div>
+      <div *ngIf="form['firstName'].errors?.['minlength']">Minimum 4 character are required.</div>
+      <div *ngIf="form['firstName'].errors?.['maxlength']">Maximum 20 character are required.</div>
+    </div>
+  </div>
+  <div class="form-group col-md-6">
+    <input type="text" class="form-control" formControlName="lastName"placeholder="Lastname"onkeypress="return event.charCode != 32" />
+    <div *ngIf="form['lastName'].touched && form['lastName'].invalid" class="text-danger">
+      <div *ngIf="form['lastName'].errors?.['required']">Name is required.</div>
+      <div *ngIf="form['lastName'].errors?.['minlength']">Minimum 4 character are required.</div>
+      <div *ngIf="form['lastName'].errors?.['maxlength']">Maximum 20 character are required.</div>
+    </div>
+  </div>
+  
+    <div class="col-12 form-group"> 
+    <input type="email" class="form-control" formControlName="email" placeholder="Email"onkeypress="return event.charCode != 32"/>
+    <div *ngIf="form['email'].touched && form['email'].invalid" class="text-danger">
+      <div *ngIf="form['email'].errors?.['required']">Email is required.</div>
+      <div *ngIf="form['email'].errors?.['pattern']">Email is invalid.</div>
+    </div>
+  </div>
+
+  <div class="col-12 form-group"> 
+    <input type="text" class="form-control" formControlName="phone" placeholder="Phone"/>
+    <div *ngIf="form['phone'].touched && form['phone'].invalid" class="text-danger">
+      <div *ngIf="form['phone'].errors?.['required']">Phone is required.</div>
+      <div *ngIf="form['phone'].errors?.['pattern']">Phone is invalid.</div>
+    </div>
+  </div>
+
+  
+
+  <div class="col-12 form-group"> 
+    <input type="text" class="form-control" formControlName="address" placeholder="Street address"/>
+    <div *ngIf="form['address'].touched && form['userName'].invalid" class="text-danger">
+      <div *ngIf="form['address'].errors?.['required']">Address is required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+  <div class="col-4">
+    <input type="text" class="form-control" formControlName="city" placeholder="city"onkeypress="return event.charCode != 32"/>
+    <div *ngIf="form['city'].touched && form['city'].invalid" class="text-danger">
+      <div *ngIf="form['city'].errors?.['required']">city is required.</div></div>
+    </div>
+    <div class="col-4">
+      <input type="text" class="form-control" formControlName="country" placeholder="Country"onkeypress="return event.charCode != 32"/>
+      <div *ngIf="form['country'].touched && form['country'].invalid" class="text-danger">
+        <div *ngIf="form['country'].errors?.['required']">Country is required.</div></div>
+  </div>
+  <div class="col-4">
+    <input type="text" class="form-control" formControlName="zip" placeholder="Zip"onkeypress="return event.charCode != 32"/>
+    <div *ngIf="form['zip'].touched && form['zip'].invalid" class="text-danger">
+      <div *ngIf="form['zip'].errors?.['required']">Zip is required.</div></div>
+</div>
+    </div>
+  </div>
+  
+  <div class="col-12 form-group"> 
+    <input type="text" class="form-control" formControlName="userName" placeholder="Username"onkeypress="return event.charCode != 32"/>
+    <div *ngIf="form['userName'].touched && form['userName'].invalid" class="text-danger">
+      <div *ngIf="form['userName'].errors?.['required']">Username is required.</div>
+      <div *ngIf="form['userName'].errors?.['minlength']">Minimum 4 character are required.</div>
+      <div *ngIf="form['userName'].errors?.['maxlength']">Maximum 20 character are required.</div>
+    </div>
+  </div>
+
+  <div class="col-12 form-group"> 
+    <input type="password" class="form-control" formControlName="password" placeholder="Password"onkeypress="return event.charCode != 32"/>
+    <div *ngIf="form['password'].touched && form['password'].invalid" class="text-danger">
+      <div *ngIf="form['password'].errors?.['required']">Password is required.</div>
+      <div *ngIf="form['password'].errors?.['minlength']">Minimum 8 character are required.</div>
+    </div>
+  </div>
+  <div class="col-12 form-group"> 
+    <input type="password" class="form-control" formControlName="confirmpassword" placeholder="Re-type password"onkeypress="return event.charCode != 32"/>
+    <div *ngIf="form['confirmpassword'].touched && form['confirmpassword'].invalid" class="text-danger">
+      <div *ngIf="form['confirmpassword'].errors?.['required']">Confirm password is required.</div>
+      <div *ngIf="form['confirmpassword'].errors?.['matching']">
+        Confirm Password does not match
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+    <div class="col-sm-6">
+    <button type="submit"  [disabled]="customerForm.invalid"  class="btn btn-primary"(click)="Register();">Register</button></div>
+    <div class="col-sm-6">
+      <button id="ClearButton" type="submit" class=" btn btn-secondary " (click)="onReset();" style="width:50%;">Clear</button>
+  </div>
+  </div> 
+  </div>
+</form>
+
+  </div>
+</div>
+</div>
