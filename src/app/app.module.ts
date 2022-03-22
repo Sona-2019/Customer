@@ -1,18 +1,28 @@
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+ } from "@angular/common/http";
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CustomerRegistrationComponent } from './UI/customer-registration/customer-registration.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CustomerRegistrationComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
